@@ -14,10 +14,24 @@ library(ggplot2)
 
 ```{r echo=FALSE, Load_the_Data}
 # 加载数据
-
+WhiteWine <- read.csv('wineQualityWhites.csv')
 ```
+本报告探索了一个包含大约4900种白葡萄酒及其成分的数据集。
 
 # 单变量绘图选择
+```{r echo=FALSE, Statistical_data_volume}
+# 数据量统计
+dim(WhiteWine)
+```
+
+```{r echo=FALSE, data_column_description}
+str(WhiteWine)
+```
+```{r}
+summary(WhiteWine)
+```
+
+
 ```{r echo=FALSE, Univariate_Plots}
 
 ```
