@@ -25,9 +25,11 @@ dim(WhiteWine)
 ```
 
 ```{r echo=FALSE, data_column_description}
+# 查看数据集列信息
 str(WhiteWine)
 ```
-```{r}
+```{r echo=FALSE, Statistics_for_each_column}
+# 分别对各列进行统计
 summary(WhiteWine)
 ```
 
