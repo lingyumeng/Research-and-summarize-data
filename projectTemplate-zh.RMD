@@ -18,7 +18,7 @@ WhiteWine <- read.csv('wineQualityWhites.csv')
 ```
 本报告探索了一个包含大约4900种白葡萄酒及其成分的数据集。
 
-# 单变量绘图选择
+
 ```{r echo=FALSE, Statistical_data_volume}
 # 数据量统计
 dim(WhiteWine)
@@ -32,11 +32,85 @@ str(WhiteWine)
 # 分别对各列进行统计
 summary(WhiteWine)
 ```
-
-
+# 单变量绘图选择
 ```{r echo=FALSE, Univariate_Plots}
-
+# 绘制品质直方图
+ggplot(aes(x = quality), data = WhiteWine) +
+  geom_histogram()
 ```
+```{r echo=FALSE, map_fixed.acidity_histogram}
+# 绘制固定酸度直方图
+ggplot(aes(x=fixed.acidity), data = WhiteWine) +
+  geom_histogram(binwidth = 0.1) +
+  scale_x_continuous(limits = c(4,10))
+```
+```{r echo=FALSE, map_fixed.acidity_histogram}
+# 绘制固定酸度直方图
+ggplot(aes(x=fixed.acidity), data = WhiteWine) +
+  geom_histogram(binwidth = 0.2) +
+  scale_x_continuous(limits = c(4,10))
+```
+
+```{r echo=FALSE, map_volatile.acidity_histogram}
+# 绘制挥发性酸度直方图
+ggplot(aes(x=volatile.acidity), data = WhiteWine) +
+  geom_histogram(binwidth = 0.02) +
+  scale_x_continuous(limits = c(0.10, 0.75), breaks = seq(0,0.75, 0.05))
+```
+
+```{r echo=FALSE, map_citric.acid_histogram}
+# 绘制柠檬酸直方图
+ggplot(aes(x=citric.acid), data = WhiteWine) +
+  geom_histogram(binwidth = 0.02) +
+  scale_x_continuous(limits = c(0, 0.75), breaks = seq(0,0.75,0.05))
+```
+```{r echo=FALSE, map_residual.sugar_histogram}
+# 绘制残留糖分直方图
+ggplot(aes(x=residual.sugar), data = WhiteWine) +
+  geom_histogram(binwidth = 0.5) +
+  scale_x_continuous(limits = c(0,25))
+```
+```{r echo=FALSE map_chlorides_histogram}
+# 绘制氯化物直方图
+ggplot(aes(x=chlorides), data = WhiteWine) +
+  geom_histogram(binwidth = 0.002) +
+  scale_x_continuous(limits = c(0, 0.1), breaks = seq(0,0.1, 0.01))
+```
+```{r echo=FALSE map_free.sulfur.dioxide_histogram}
+# 绘制游离二氧化硫直方图
+ggplot(aes(x=free.sulfur.dioxide), data = WhiteWine) +
+  geom_histogram(binwidth = 3) +
+  scale_x_continuous(limits = c(0,90))
+```
+```{r echo=FALSE map_total.sulfur.dioxide_histogram}
+# 绘制总二氧化硫直方图
+ggplot(aes(x=total.sulfur.dioxide), data = WhiteWine) +
+  geom_histogram(binwidth = 5) +
+  scale_x_continuous(limits = c(0,275), breaks = seq(0, 275, 25))
+```
+
+```{r echo=FALSE, map_density_histogram}
+ggplot(aes(x=density), data = WhiteWine) +
+  geom_histogram(binwidth = 0.0005) +
+  scale_x_continuous(limits = c(0.985, 1.01))
+```
+```{r echo=FALSE, map_pH_hist}
+# 绘制ph值的直方图
+ggplot(aes(x=pH), data = WhiteWine) +
+  geom_histogram(binwidth = 0.03)
+```
+```{r echo=FALSE, map_sulphates_histogram}
+# 绘制硫酸盐直方图
+ggplot(aes(x=sulphates), data = WhiteWine) +
+  geom_histogram(binwidth = 0.03)
+```
+```{r echo=FALSE, map_alcohol_histogram}
+# 绘制乙醇直方图
+ggplot(aes(x=alcohol), data = WhiteWine) +
+  geom_histogram(binwidth = 0.2) +
+  scale_x_continuous(limits = c(8, 15))
+```
+
 
 # 单变量分析
 
@@ -54,7 +128,8 @@ summary(WhiteWine)
 
 # 双变量绘图选择
 ```{r echo=FALSE, Bivariate_Plots}
-
+ggplot(aes(x=fixed.acidity, y=quality), data = WhiteWine) +
+  geom_point()
 ```
 
 # 双变量分析
